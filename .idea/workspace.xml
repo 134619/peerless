@@ -9,8 +9,10 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ProjectId" id="1bIaDpem1g0eleU2QhWIftBslNK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Django项目/mypro" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -46,6 +48,7 @@
       <updated>1588321944944</updated>
       <workItem from="1588321946118" duration="326000" />
       <workItem from="1589017981626" duration="653000" />
+      <workItem from="1589270017448" duration="39000" />
     </task>
     <servers />
   </component>

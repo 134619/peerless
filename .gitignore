@@ -1,3 +1,5 @@
 venv
 web_socker/web_socker/__pycache__
 .vscode
+db.sqlite3
+__pycache__

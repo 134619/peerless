@@ -37,10 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'admin'
+    'background_debug'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'web_socker.urls'
@@ -87,7 +89,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'HOST': '127.0.0.1',
         'PORT': '3306',
-        'NAME': 'shops',
+        'NAME': 'peerless',
         'USER': 'root',
         'PASSWORD': '123456',
         # 连接模式
@@ -133,19 +135,31 @@ STATIC_URL = '/static/'
 
 # 跨域增加忽略
 
-
-MIDDLEWARE_CLASSES = (
-    ...
+MIDDLEWARE_CLASSES = [
+    '''
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    ...
-)
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
+    '''
+]
 
-#跨域增加忽略
+# #配置白名单
+# CORS_ORIGIN_WHITELIST = (
+#     "http://sit-design.skong.com",
+#     "http://dev-design.skong.com",
+#     "http://uat-design.skong.com",
+#     "http://std-design.skong.com",
+#     "http://rdb-design.skong.com",
+#     "http://design.skong.com"
+# )
+
+# 容许携带cookie
 CORS_ALLOW_CREDENTIALS = True
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = ()
 
+# 容许所有主机跨域
+CORS_ORIGIN_ALLOW_ALL = True
+
+# 默认请求方法
 CORS_ALLOW_METHODS = (
     'DELETE',
     'GET',
@@ -155,7 +169,8 @@ CORS_ALLOW_METHODS = (
     'PUT',
     'VIEW',
 )
- 
+
+# 默认可以使用的非标准请求头
 CORS_ALLOW_HEADERS = (
     'accept',
     'accept-encoding',
@@ -167,3 +182,24 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+# CORS_ORIGIN_WHITELIST  = [
+#     "https://sit-design.skong.com",
+#     "https://dev-design.skong.com",
+#     "https://uat-design.skong.com",
+#     "https://std-design.skong.com",
+#     "https://rdb-design.skong.com",
+#     "https://design.skong.com"
+# ]
+
+# # 信任的站点
+# CSRF_TRUSTED_ORIGINS = (
+#     "sit-design.skong.com",
+#     "dev-design.skong.com",
+#     "uat-design.skong.com",
+#     "std-design.skong.com",
+#     "rdb-design.skong.com",
+#     "design.skong.com"
+# )
+
+
