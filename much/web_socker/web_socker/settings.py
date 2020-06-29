@@ -76,28 +76,28 @@ WSGI_APPLICATION = 'web_socker.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'HOST': '127.0.0.1',
-        'PORT': '3306',
-        'NAME': 'peerless',
-        'USER': 'root',
-        'PASSWORD': '123456',
-        # 连接模式
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-            },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'NAME': 'peerless',
+#         'USER': 'root',
+#         'PASSWORD': '123456',
+#         # 连接模式
+#         'OPTIONS': {
+#             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+#             },
+#     }
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -132,16 +132,6 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-
-# 跨域增加忽略
-
-MIDDLEWARE_CLASSES = [
-    '''
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'corsheaders.middleware.CorsPostCsrfMiddleware',
-    '''
-]
 
 # #配置白名单
 # CORS_ORIGIN_WHITELIST = (
@@ -184,22 +174,10 @@ CORS_ALLOW_HEADERS = (
 )
 
 # CORS_ORIGIN_WHITELIST  = [
-#     "https://sit-design.skong.com",
-#     "https://dev-design.skong.com",
-#     "https://uat-design.skong.com",
-#     "https://std-design.skong.com",
-#     "https://rdb-design.skong.com",
-#     "https://design.skong.com"
 # ]
 
 # # 信任的站点
 # CSRF_TRUSTED_ORIGINS = (
-#     "sit-design.skong.com",
-#     "dev-design.skong.com",
-#     "uat-design.skong.com",
-#     "std-design.skong.com",
-#     "rdb-design.skong.com",
-#     "design.skong.com"
 # )
 
 
